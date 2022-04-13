@@ -55,14 +55,30 @@ public class BinarySearchTree {
     }
 
     private void doInOrder(BstNode root) {
+        
+        if(root == null){
+            return;
+        }
+        doInOrder(root.getLeft());
+        System.out.print(root + " ");
+        doInOrder(root.getRight());
 
         // ToDo 1: complete InOrder Traversal 
     }
-        public void preOrderTraversal() {
+    public void preOrderTraversal() {
         doPreOrder(this.root);
+        
         // ToDo 2: complete the pre-order travesal . 
     }
-
+    private void doPreOrder(BstNode root) {
+        if(root == null){
+            return;
+        }
+        System.out.print(root + " ");
+        doPreOrder(root.getLeft());
+        doPreOrder(root.getRight());
+            
+    }
     public Integer findHeight() {
 
         // ToDo 3: Find the height of a tree
@@ -79,6 +95,8 @@ public class BinarySearchTree {
         print("", root, false);
         // ToDo 5: complete the print of the BST
     }
+
+    
 
 
 }
