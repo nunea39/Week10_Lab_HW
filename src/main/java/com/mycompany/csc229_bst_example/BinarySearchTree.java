@@ -60,7 +60,7 @@ public class BinarySearchTree {
             return;
         }
         doInOrder(root.getLeft());
-        System.out.print(root + " ");
+        System.out.print(root.getData() + " ");
         doInOrder(root.getRight());
 
         // ToDo 1: complete InOrder Traversal 
@@ -74,19 +74,37 @@ public class BinarySearchTree {
         if(root == null){
             return;
         }
-        System.out.print(root + " ");
+        System.out.print(root.getData() + " ");
         doPreOrder(root.getLeft());
         doPreOrder(root.getRight());
             
     }
     public Integer findHeight() {
+        return doFindHeight(this.root);
 
-        // ToDo 3: Find the height of a tree
+        
     }
-
+    private Integer doFindHeight(BstNode root) {
+        
+        if(root == null){
+            return -1;
+        }
+        return Math.max(
+                doFindHeight(root.getLeft()), 
+                doFindHeight(root.getRight()));
+    }
     
 
     public int getDepth(BstNode node) {
+        int leftNode = getDepth(node.getLeft());
+        int rightNode = getDepth(node.getRight());
+        
+        if(leftNode < rightNode){
+            return rightNode + 1;
+        }
+        else
+            return leftNode + 1;
+            
         //ToDo 4: complete getDepth of a node 
     }
     
@@ -95,6 +113,12 @@ public class BinarySearchTree {
         print("", root, false);
         // ToDo 5: complete the print of the BST
     }
+
+    private void print(String string, BstNode root, boolean b) {
+        
+    }
+
+
 
     
 
